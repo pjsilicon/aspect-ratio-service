@@ -1,0 +1,41 @@
+{
+  "version": 2,
+  "functions": {
+    "api/**/*.js": {
+      "runtime": "@vercel/node@22",
+      "memory": 1024,
+      "maxDuration": 60
+    }
+  },
+  "env": {
+    "SUPABASE_URL": "@supabase-url",
+    "SUPABASE_SERVICE_ROLE_KEY": "@supabase-service-role-key",
+    "WEBHOOK_SECRET": "@webhook-secret",
+    "NODE_ENV": "production"
+  },
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, POST, PUT, DELETE, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type, Authorization, X-Webhook-Signature"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/api/health"
+    }
+  ]
+}
