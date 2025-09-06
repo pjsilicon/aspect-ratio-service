@@ -6,7 +6,6 @@
   "type": "module",
   "scripts": {
     "dev": "vercel dev",
-    "build": "vercel build",
     "deploy": "vercel --prod",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
