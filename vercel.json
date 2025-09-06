@@ -2,16 +2,10 @@
   "version": 2,
   "functions": {
     "api/**/*.js": {
-      "runtime": "@vercel/node@22",
+      "runtime": "nodejs20.x",
       "memory": 1024,
       "maxDuration": 60
     }
-  },
-  "env": {
-    "SUPABASE_URL": "@supabase-url",
-    "SUPABASE_SERVICE_ROLE_KEY": "@supabase-service-role-key",
-    "WEBHOOK_SECRET": "@webhook-secret",
-    "NODE_ENV": "production"
   },
   "headers": [
     {
